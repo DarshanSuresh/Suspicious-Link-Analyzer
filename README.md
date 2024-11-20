@@ -21,16 +21,20 @@ The goal is to analyze and predict malicious URLs by:
 - Address bar attributes like long URLs or presence of suspicious characters.
 
 ### 🧠 **Machine Learning Models**
-- Gradient Boosting Classifier: Top performer with **97.4% accuracy**.
-- CatBoost Classifier, Random Forest, Multi-layer Perceptron, and more.
-- Refer to **SuspiciousLinkAnalyzer.ipynb** for detailed performance metrics.
-
-### 📊 **Results**
-| ML Model                   | Accuracy | f1_score | Recall | Precision |
-|----------------------------|----------|----------|--------|-----------|
+The following machine learning models were tested, and their performances were compared based on key metrics:
+| Model                     | Accuracy | f1_score | Recall | Precision |
+|---------------------------|----------|----------|--------|-----------|
 | Gradient Boosting Classifier | 0.974    | 0.977    | 0.994  | 0.986     |
 | CatBoost Classifier         | 0.972    | 0.975    | 0.994  | 0.989     |
 | Multi-layer Perceptron      | 0.969    | 0.973    | 0.995  | 0.981     |
+| Random Forest               | 0.967    | 0.971    | 0.993  | 0.990     |
+| Support Vector Machine      | 0.964    | 0.968    | 0.980  | 0.965     |
+| Decision Tree               | 0.960    | 0.964    | 0.991  | 0.993     |
+| K-Nearest Neighbors         | 0.956    | 0.961    | 0.991  | 0.989     |
+| Logistic Regression         | 0.934    | 0.941    | 0.943  | 0.927     |
+| Naive Bayes Classifier      | 0.605    | 0.454    | 0.292  | 0.997     |
+
+The **Gradient Boosting Classifier** achieved the highest accuracy, making it the most suitable for this task.
 
 ---
 
@@ -40,36 +44,78 @@ The goal is to analyze and predict malicious URLs by:
 - **Pandas**: Data handling.
 - **Matplotlib**: Visualization.
 - **Scikit-learn**: Machine learning models.
-- **Flask**: Web integration.
+- **Flask**: Web application development.
 
 ---
 
 ## Installation ⚙️
-Fork and clone the repository. Install the dependencies:
-```bash
-pip install -r requirements.txt
-```
+To set up the project locally, follow these steps:
+
+1. Fork and clone the repository.
+2. Install the dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Web Application 🌐
+The system includes an interactive web application where users can input URLs for analysis. The application:
+- Extracts features from the given URL.
+- Predicts the probability of the URL being suspicious or legitimate.
+- Displays the results in a user-friendly format.
+
+The app is built using **Flask** and can be extended for real-time monitoring and integration into larger systems.
 
 ---
 
-## Web Application 🌐
-The system provides an interactive webpage for users to input URLs. It processes the URLs in real-time, extracts features, and predicts the probability of the link being suspicious with a user-friendly interface.
+## Dataset 📂
+The dataset comprises both phishing and legitimate URLs. Key features extracted include:
+- Presence of HTTPS.
+- URL length and domain age.
+- Anchor tags and website traffic data.
+
+The dataset is preprocessed to enhance the performance of machine learning models. More details are available in the `SuspiciousLinkAnalyzer.ipynb` file.
+
+---
+
+## Results 📊
+| **Metric**                 | **Best Model (Gradient Boosting)** |
+|----------------------------|-------------------------------------|
+| Accuracy                   | 0.974                              |
+| f1_score                   | 0.977                              |
+| Recall                     | 0.994                              |
+| Precision                  | 0.986                              |
+
+The **Gradient Boosting Classifier** significantly outperformed other models, achieving a near-perfect accuracy rate and excellent precision-recall balance.
 
 ---
 
 ## Conclusion ✅
-- **Gradient Boosting Classifier** emerged as the most accurate model with **97.4% classification accuracy**, significantly reducing the risks associated with malicious links.
-- Features like HTTPS presence, anchor URLs, and website traffic play a crucial role in detecting suspicious links.
-- This project serves as a hands-on exploration of data preprocessing, feature engineering, and model optimization.
+1. **Gradient Boosting Classifier** emerged as the top-performing model with **97.4% accuracy**, demonstrating its effectiveness in detecting suspicious URLs.
+2. Features like **HTTPS presence**, **anchor tags**, and **website traffic data** were critical for classification.
+3. This project provided hands-on experience with data preprocessing, feature engineering, and model optimization.
 
 ---
 
 ## Future Enhancements 🔮
-1. Real-time detection integration.
-2. Feature improvement through advanced natural language processing.
-3. Extension to detect malicious attachments and embedded threats.
+- **Real-Time Detection**: Integrate with browser extensions or APIs for real-time URL detection.
+- **Enhanced Features**: Utilize advanced NLP techniques to extract semantic features from URLs.
+- **Threat Analysis**: Extend the system to detect malicious attachments and embedded threats.
 
 ---
 
-Feel free to contribute, report issues, or suggest enhancements! 🚀
-```
+## Contributing 🤝
+We welcome contributions to improve the project! Feel free to open issues, submit pull requests, or suggest new features.
+
+---
+
+## License 📜
+This project is licensed under the **MIT License**. Feel free to use and modify the code.
+
+---
+
+## Acknowledgments 🙏
+Special thanks to all contributors and the open-source community for their support.
+
+---
+
+Happy Coding! 🚀
